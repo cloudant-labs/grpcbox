@@ -209,7 +209,7 @@ on_receive_data(Bin, State=#state{request_encoding=Encoding,
     catch
         throw:{grpc_error, {Status, Message}} ->
             end_stream(Status, Message, State);
-        C:E:S ->
+        _:_ ->
             % ?LOG_INFO("crash: class=~p exception=~p stacktrace=~p", [C, E, S]),
             end_stream(?GRPC_STATUS_UNKNOWN, <<>>, State)
     end.
