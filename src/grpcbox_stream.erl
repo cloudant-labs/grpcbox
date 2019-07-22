@@ -1,7 +1,7 @@
 -module(grpcbox_stream).
 
 -include_lib("chatterbox/include/http2.hrl").
--include_lib("kernel/include/logger.hrl").
+% -include_lib("kernel/include/logger.hrl").
 -include("grpcbox.hrl").
 
 -behaviour(h2_stream).
@@ -210,7 +210,7 @@ on_receive_data(Bin, State=#state{request_encoding=Encoding,
         throw:{grpc_error, {Status, Message}} ->
             end_stream(Status, Message, State);
         C:E:S ->
-            ?LOG_INFO("crash: class=~p exception=~p stacktrace=~p", [C, E, S]),
+            % ?LOG_INFO("crash: class=~p exception=~p stacktrace=~p", [C, E, S]),
             end_stream(?GRPC_STATUS_UNKNOWN, <<>>, State)
     end.
 
