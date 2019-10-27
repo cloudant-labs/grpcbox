@@ -5,7 +5,7 @@ case erlang:function_exported(rebar3, main, 1) of
         %% Rebuild deps, possibly including those that have been moved to
         %% profiles
         NewDeps = [
-            {chatterbox, ".*", {git, "https://github.com/tsloughter/chatterbox", {tag, "v0.9.1"}}},
+            {chatterbox, ".*", {git, "https://github.com/cloudant-labs/chatterbox.git", {branch, "cloudant-fixes"}}},
             {ctx, ".*", {git, "https://github.com/tsloughter/ctx", {tag, "v0.5.0"}}},
             {acceptor_pool, ".*", {git, "https://github.com/fishcakez/acceptor_pool", {branch, "master"}}},
             {gproc, ".*", {git, "https://github.com/uwiger/gproc", {branch, "master"}}}
